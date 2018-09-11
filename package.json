@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-vuecli",
+  "version": "1.0.0",
+  "description": "基于nuxt.js生成的ssr项目",
+  "author": "zhangcanfeng612 <www.785113106@qq.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dom-storage": "^2.1.0",
+    "fs": "0.0.1-security",
+    "js-cookie": "^2.2.0",
+    "js-cookies": "^1.0.4",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "nuxt": "^1.0.0",
+    "vuex-persist": "^1.4.3",
+    "vuex-persistedstate": "^2.5.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/proxy": "^1.2.4",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.2.2",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-vue": "^2.1.0",
+    "jest-localstorage-mock": "^2.2.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": "standard",
+  "globals": {
+    "mixpanel": true,
+    "MIXPANEL_CUSTOM_LIB_URL": true,
+    "_MEIQIA": true,
+    "WxLogin": true,
+    "$": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "semi": ["error", "always"],
+    "no-console": "warn"
+  },
+  "plugins": [
+    "html"
+  ]
+}
