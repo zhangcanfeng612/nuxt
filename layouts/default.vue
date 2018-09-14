@@ -6,7 +6,12 @@
 
     <!-- 全局组件 -->
     <no-ssr>
-      <base-loading v-if="GlobalComponentStatus.BASELOADING.show" v-bind="GlobalComponentStatus.BASELOADING.payload" />
+      <div class="GlobalComponent">
+        <base-loading v-if="GlobalComponentStatus.BASELOADING.show" v-bind="GlobalComponentStatus.BASELOADING.payload" />
+        <base-modal v-model="GlobalComponentStatus.BASEMODAL.show" v-bind="GlobalComponentStatus.BASEMODAL.payload" :backdrop="true">
+          {{ GlobalComponentStatus.BASEMODAL.payload.slot }}
+        </base-modal>
+      </div>
     </no-ssr>
   </div>
 </template>
@@ -18,6 +23,7 @@ import $Config from '@/nuxt.config';
 
 // 全局组件(登录弹窗，信息，对话框等)
 import BaseLoading from '@/components/BaseLoading';
+import BaseModal from '@/components/BaseModal';
 
 const heads = seo =>
   function getHeadsMap () {
@@ -30,7 +36,7 @@ const heads = seo =>
 const routeMapHead = heads(require('@/static/js/seo.config'));
 export default {
   componentName: 'ROOT',
-  components: { NutsHeader, NutsFooter, BaseLoading },
+  components: { NutsHeader, NutsFooter, BaseLoading, BaseModal },
   computed: { routeMapHead },
   data () {
     return {
@@ -44,7 +50,7 @@ export default {
     return typeof head === 'function' ? head(route) : head;
   },
   created () {
-    console.error(this.$store.state.GlobalComponent.BASELOADING);
+    console.error(this.GlobalComponentStatus.BASEMODAL.payload.slot);
     console.error($Config.env);
   },
 };

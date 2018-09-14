@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .loading-page {
   position: fixed;
   top: 0;
@@ -29,9 +29,15 @@ export default {
   height: 100%;
   background: rgba(255, 255, 255, 0.8);
   text-align: center;
-  padding-top: 200px;
   font-size: 30px;
   font-family: sans-serif;
   z-index: 1000;
+
+  p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
 }
 </style>

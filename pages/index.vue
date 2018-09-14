@@ -7,6 +7,7 @@
     <div>{{ AcceptData }}</div>
     <div>{{ project }}</div>
     <button @click="onLoading">点击loading</button>
+    <button @click="onModal">点击显示模态框</button>
   </section>
 </template>
 
@@ -37,6 +38,11 @@ export default {
         component: 'BASELOADING',
         title: '你好',
         text: '数据成功传输',
+      });
+    },
+    onModal () {
+      this.$store.dispatch('GlobalComponent/show', {
+        component: 'BASEMODAL',
       });
     },
   },

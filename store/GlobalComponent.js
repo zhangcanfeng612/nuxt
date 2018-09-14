@@ -5,26 +5,33 @@ export const state = () => ({
     show: false,
     payload: {},
   },
-  BASEMESSAGE: {
+  BASEMODAL: {
     show: false,
-    payload: {},
+    payload: {
+      slot: '这是一个弹窗',
+    },
   },
 });
 
 export const mutations = {
-  setValue (state, payload) {
+  show (state, payload) {
     payload = payload || {};
     state[payload.component].show = true;
+    state[payload.component].payload = _.assign(payload);
+  },
+  hide (state, payload) {
+    payload = payload || {};
+    state[payload.component].show = false;
     state[payload.component].payload = _.assign(payload);
   },
 };
 
 export const actions = {
   show (context, payload) {
-    context.commit('setValue', payload);
+    context.commit('show', payload);
   },
   hide (context, payload) {
-    context.commit('setValue', payload);
+    context.commit('hide', payload);
   },
 };
 
