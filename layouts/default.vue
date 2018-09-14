@@ -6,7 +6,7 @@
 
     <!-- 全局组件 -->
     <no-ssr>
-      <base-loading v-if="$store.state.GlobalComponent.BASELOADING.show" v-bind="$store.state.GlobalComponent.BASELOADING.payload" />
+      <base-loading v-if="GlobalComponentStatus.BASELOADING.show" v-bind="GlobalComponentStatus.BASELOADING.payload" />
     </no-ssr>
   </div>
 </template>
@@ -29,9 +29,14 @@ const heads = seo =>
   };
 const routeMapHead = heads(require('@/static/js/seo.config'));
 export default {
+  componentName: 'ROOT',
   components: { NutsHeader, NutsFooter, BaseLoading },
   computed: { routeMapHead },
-  componentName: 'ROOT',
+  data () {
+    return {
+      GlobalComponentStatus: this.$store.state.GlobalComponent,
+    };
+  },
   head () {
     // SEO 的中心化管理
     const route = this.$route;
