@@ -2,8 +2,8 @@ import axios from 'axios';
 import qs from 'qs';
 import config from './config';
 
-// import queryTestUrlConfig from '../static/config/testUrl.json';
-// import queryUrlConfig from '../static/config/url.json';
+import queryTestUrlConfig from '../static/json/testUrl.json';
+import queryUrlConfig from '../static/json/url.json';
 
 if (process.server) {
   config.baseURL = `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3000}`;
@@ -32,6 +32,22 @@ service.interceptors.response.use(
 );
 
 export default {
+  // 页面初始化时须执行init
+  init () {
+    if (process.browser) {
+      const webSite = window.location;
+      let config = queryTestUrlConfig; // 测试地址
+      if (webSite.host.match('bp.nutsbp.com')) {
+        config = queryUrlConfig; //  正式地址
+      }
+      console.error(config.data);
+
+      this._url = config.data.url;
+    }
+  },
+  get url () {
+    return this._url;
+  },
   post (url, data) {
     console.log('post request url', url);
     return service({

@@ -7,7 +7,8 @@
     :class="{ 'modal-transparent': !backdrop}">
     <transition name="modal">
       <div v-show="value" @click.stop class="modal-content">
-        <slot></slot>
+        <!-- <slot v-html="sloter"></slot> -->
+        <div v-html="sloter"></div>
       </div>
     </transition>
 	</div>
@@ -32,6 +33,10 @@
       backdrop: {
         type: Boolean,
         default: true,
+      },
+      sloter: {
+        type: String,
+        default: '',
       },
     },
 
@@ -140,7 +145,7 @@
   pointer-events: auto;
   padding: 50px;
   text-align: center;
-  corlor: rgb(200,200,200);
+  color: rgb(200,200,200);
   background-color: #ffffff;
 }
 

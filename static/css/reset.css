@@ -152,6 +152,11 @@ canvas {
   -ms-interpolation-mode: nearest-neighbor;
 }
 
+button {
+  border: none;
+  outline: none;
+}
+
 /* 去除chrome 记住密码的输入框背景颜色 */
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;

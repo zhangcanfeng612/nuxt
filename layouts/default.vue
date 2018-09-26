@@ -8,8 +8,10 @@
     <no-ssr>
       <div class="GlobalComponent">
         <base-loading v-if="GlobalComponentStatus.BASELOADING.show" v-bind="GlobalComponentStatus.BASELOADING.payload" />
-        <base-modal v-model="GlobalComponentStatus.BASEMODAL.show" v-bind="GlobalComponentStatus.BASEMODAL.payload" :backdrop="true">
-          {{ GlobalComponentStatus.BASEMODAL.payload.slot }}
+        <base-modal v-model="GlobalComponentStatus.BASEMODAL.show"
+                    v-bind="GlobalComponentStatus.BASEMODAL.payload"
+                    :sloter="GlobalComponentStatus.BASEMODAL.payload.sloter"
+                    :backdrop="true">
         </base-modal>
       </div>
     </no-ssr>
@@ -20,6 +22,7 @@
 import NutsHeader from '@/layouts/components/nuts-header';
 import NutsFooter from '@/layouts/components/nuts-footer';
 import $Config from '@/nuxt.config';
+import $Service from '@/service/index';
 
 // 全局组件(登录弹窗，信息，对话框等)
 import BaseLoading from '@/components/BaseLoading';
@@ -49,9 +52,13 @@ export default {
     const head = this.routeMapHead[route.name];
     return typeof head === 'function' ? head(route) : head;
   },
+  // 注意：beforeCreate与created在客户端与服务端均会被调用
+  beforeCreate () {
+    $Service.init();
+  },
   created () {
     console.error(this.GlobalComponentStatus.BASEMODAL.payload.slot);
-    console.error($Config.env);
+    console.error(`env:${$Config.env.NODE_ENV}`);
   },
 };
 </script>

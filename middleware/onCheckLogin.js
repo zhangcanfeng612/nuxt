@@ -27,8 +27,8 @@ function isLogin (callback) {
   callback(isSessionId || isToken);
 }
 
-export default function (context) {
-  if (context.isClient) {
+export default function () {
+  if (process.client) {
     isLogin((res) => {
       if (!res) {
         onCreatSid();

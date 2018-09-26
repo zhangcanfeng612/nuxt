@@ -8,11 +8,12 @@
     <div>{{ project }}</div>
     <button @click="onLoading">点击loading</button>
     <button @click="onModal">点击显示模态框</button>
+    <div class="icon-edit">全局css-fonttell</div>
   </section>
 </template>
 
 <script>
-import $server from '../service';
+import $Server from '../service';
 export default {
   data () {
     return { project: 'default' };
@@ -43,13 +44,14 @@ export default {
     onModal () {
       this.$store.dispatch('GlobalComponent/show', {
         component: 'BASEMODAL',
+        sloter: '你好',
       });
     },
   },
   async asyncData (context) {
     const url = 'https://httpbin.org/get';
     const data = {};
-    return $server.get(url, data)
+    return $Server.get(url, data)
       .then((res) => {
         return { AcceptData: res.headers.Accept };
       })
@@ -77,5 +79,7 @@ button {
   line-height: 50px;
   text-align: center;
   background-color: aqua;
+  border: 1px solid #ff8847;
+  margin: 20px;
 }
 </style>

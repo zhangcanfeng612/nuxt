@@ -8,7 +8,7 @@ export const state = () => ({
   BASEMODAL: {
     show: false,
     payload: {
-      slot: '这是一个弹窗',
+      sloter: '这是一个弹窗',
     },
   },
 });

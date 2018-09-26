@@ -2,6 +2,9 @@ module.exports = {
   env: {
     NODE_ENV: process.env.NODE_ENV,
   },
+  nuxt: {
+    'port': '3000',
+  },
   router: {
     middleware: 'onCheckLogin',
   },
@@ -15,6 +18,10 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//az.cdn.nutsbp.com/007/image/nuts_bp_pc/web4.0/font_icon/css/fontello.css' },
+    ],
+    script: [
+      { src: 'http://az.cdn.nutsbp.com/007/nuts-component/component/jquery/jquery-3.2.1.min.js' },
     ],
   },
   css: [
