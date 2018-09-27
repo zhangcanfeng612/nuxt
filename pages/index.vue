@@ -9,6 +9,7 @@
     <button @click="onLoading">点击loading</button>
     <button @click="onModal">点击显示模态框</button>
     <div class="icon-edit">全局css-fonttell</div>
+    <button @click="onNutsAccount">点击显示登录弹窗</button>
   </section>
 </template>
 
@@ -47,6 +48,12 @@ export default {
         sloter: '你好',
       });
     },
+    onNutsAccount () {
+      this.$store.dispatch('GlobalComponent/show', {
+        component: 'NUTSACCOUNT',
+        page: 'wxLogin',
+      });
+    },
   },
   async asyncData (context) {
     const url = 'https://httpbin.org/get';
@@ -74,7 +81,7 @@ export default {
 }
 
 button {
-  width: 100px;
+  width: 130px;
   height: 50px;
   line-height: 50px;
   text-align: center;

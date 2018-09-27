@@ -1,17 +1,17 @@
 <template>
   <transition name="modal-mask" @after-leave="afterLeave">
-  <div
-    class="modal-mask"
-    v-show="value"
-    @click="clickBackdrop"
-    :class="{ 'modal-transparent': !backdrop}">
-    <transition name="modal">
-      <div v-show="value" @click.stop class="modal-content">
-        <!-- <slot v-html="sloter"></slot> -->
-        <div v-html="sloter"></div>
-      </div>
-    </transition>
-	</div>
+    <div
+      class="modal-mask"
+      v-show="value"
+      @click="clickBackdrop"
+      :class="{ 'modal-transparent': !backdrop}">
+      <transition name="modal">
+        <div v-show="value" @click.stop class="modal-content">
+          <!-- <slot v-html="sloter"></slot> -->
+          <div v-html="sloter"></div>
+        </div>
+      </transition>
+    </div>
   </transition>
 </template>
 
@@ -98,86 +98,5 @@
 
 
 <style scoped>
-.modal-mask {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 9999999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.8);
-  outline: none;
-}
-
-.modal-mask.modal-transparent {
-  background: transparent;
-  pointer-events: none;
-}
-
-.modal-enter-active {
-  animation: bounce-in .5s;
-}
-.modal-leave-active {
-  animation: bounce-out .3s;
-}
-
-/* 淡入最终态 */
-.modal-mask-enter-active {
-  transition: opacity 0.5s
-}
-
-/* 淡出最终态 */
-.modal-mask-leave-active {
-  transition: opacity 0.5s;
-  opacity: 0;
-  position: fixed;
-}
-
-/* 淡入初始态 */
-.modal-mask-enter {
-  opacity: 0;
-}
-
-.modal-content {
-  pointer-events: auto;
-  padding: 50px;
-  text-align: center;
-  color: rgb(200,200,200);
-  background-color: #ffffff;
-}
-
-@keyframes bounce-in {
-  from {
-    opacity: 0;
-    transform: scale3d(0.5, 0.5, 0.5);
-  }
-
-  20% {
-    opacity: 0.5;
-    transform: scale3d(1.2, 1.2, 1.2);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes bounce-out {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  20% {
-    opacity: 0.5;
-    transform: scale3d(0.5, 0.5, 0.5);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale3d(0, 0, 0);
-  }
-}
 
 </style>

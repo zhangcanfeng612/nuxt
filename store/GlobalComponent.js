@@ -11,6 +11,12 @@ export const state = () => ({
       sloter: '这是一个弹窗',
     },
   },
+  NUTSACCOUNT: {
+    show: false,
+    payload: {
+      page: 'wxLogin',
+    },
+  },
 });
 
 export const mutations = {

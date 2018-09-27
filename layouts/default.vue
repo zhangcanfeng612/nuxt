@@ -4,15 +4,19 @@
     <nuxt/>
     <nuts-footer/>
 
+
     <!-- 全局组件 -->
     <no-ssr>
       <div class="GlobalComponent">
         <base-loading v-if="GlobalComponentStatus.BASELOADING.show" v-bind="GlobalComponentStatus.BASELOADING.payload" />
+
         <base-modal v-model="GlobalComponentStatus.BASEMODAL.show"
                     v-bind="GlobalComponentStatus.BASEMODAL.payload"
                     :sloter="GlobalComponentStatus.BASEMODAL.payload.sloter"
-                    :backdrop="true">
-        </base-modal>
+                    :backdrop="true" />
+
+        <nuts-account v-if="GlobalComponentStatus.NUTSACCOUNT.show"
+                      v-bind="GlobalComponentStatus.NUTSACCOUNT.payload" />
       </div>
     </no-ssr>
   </div>
@@ -28,6 +32,8 @@ import $Service from '@/service/index';
 import BaseLoading from '@/components/BaseLoading';
 import BaseModal from '@/components/BaseModal';
 
+// 疯狂BP业务弹窗
+import NutsAccount from '@/layouts/components/nuts-account';
 const heads = seo =>
   function getHeadsMap () {
     const map = {};
@@ -39,7 +45,13 @@ const heads = seo =>
 const routeMapHead = heads(require('@/static/js/seo.config'));
 export default {
   componentName: 'ROOT',
-  components: { NutsHeader, NutsFooter, BaseLoading, BaseModal },
+  components: {
+    NutsHeader,
+    NutsFooter,
+    BaseLoading,
+    BaseModal,
+    NutsAccount,
+  },
   computed: { routeMapHead },
   data () {
     return {

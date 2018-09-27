@@ -26,6 +26,7 @@ module.exports = {
   },
   css: [
     '~/static/css/reset.css',
+    '~/assets/main.css',
   ],
   loading: '~/components/PageLoading.vue',
   plugins:
