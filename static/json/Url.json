@@ -2,24 +2,5 @@
   "code": 0,
   "data": {
     "url": "//bp.nutsbp.com",
-    "env": "production",
-    "home": "//www.nutsbp.com",
-    "api": "//api.thomas.nutsbp.com",
-    "apiV1": "//api.nutsbp.com",
-    "apiV3": "//api.ranch.nutsbp.com",
-    "cdn": "//static.thomas.nutsbp.com",
-    "imgCdn": "http://az.img.nutsbp.com",
-    "caseImgCdn": "http://az.img.nutsbp.com/public",
-    "nutsCdn": "//az.cdn.nutsbp.com",
-    "editorV3": "//edit.nutsbp.com",
-    "editorV4": "//editor.nutsbp.com",
-    "pdf": "//api.pdf.nutsbp.com",
-    "apiPr": "//api.pr.dartcome.com/v1.0",
-    "prPage": "//dartcome.com/u/",
-    "NewApiPr": "//dartcome.com/api/graphql",
-    "apiDartcome": "//api.dartcome.com/v1.0",
-    "investorListUrl": "http://rank.dartcome.com/#",
-    "wechartReturnUrl": "http://api.ranch.nutsbp.com/redirect?key=nutsbp.sign-in.qr",
-    "bandingWechartReturnUrl": "http://api.ranch.nutsbp.com/redirect?key=nutsbp.bind.qr"
   }
 }
