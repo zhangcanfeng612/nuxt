@@ -2,24 +2,5 @@
   "code": 0,
   "data": {
     "url": "//bp.nutsbp.nutsb.com",
-    "env": "developer",
-    "home": "//www.nutsbp.com",
-    "api": "//dev.nutsb.com/nutsbp-editor-server",
-    "apiV1": "//api.bp.nutsb.com",
-    "apiV3": "//api.ranch.nutsbp.nutsb.com",
-    "cdn": "//dev.nutsb.com",
-    "imgCdn": "http://az.img.nutsbp.nutsb.com",
-    "caseImgCdn": "http://az.img.nutsbp.com/dev",
-    "nutsCdn": "//az.cdn.nutsbp.nutsb.com",
-    "editorV3": "//edit.nutsbp.nutsb.com",
-    "editorV4": "//editor.nutsbp.nutsb.com",
-    "pdf": "//dev.nutsb.com/nutsbp-pdf-service",
-    "apiPr": "//api.pr.dartcome.nutsb.com/v1.0",
-    "prPage": "//dartcome.nutsb.com/u/",
-    "NewApiPr": "//dartcome.nutsb.com/api/graphql",
-    "apiDartcome": "//api.dartcome.nutsb.com/v1.0",
-    "investorListUrl": "http://rank.dartcome.nutsb.com/#",
-    "wechartReturnUrl": "http://api.ranch.nutsbp.com/redirect?key=test.nutsbp.sign-in.qr",
-    "bandingWechartReturnUrl": "http://api.ranch.nutsbp.com/redirect?key=test.nutsbp.bind.qr"
   }
 }
