@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="loading-page" v-if="loading">
-    <p>Loading...</p>
+    <div class="background">
+      <img src="@/static/image/loading-bars.svg">
+    </div>
   </div>
 </template>
 
@@ -33,8 +35,20 @@ export default {
   font-family: sans-serif;
   z-index: 1000;
 
-  p {
+  .background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+    background-color: rgba(0,0,0,0.2);
+  }
+
+  img {
     position: absolute;
+    width: 100px;
+    height: 100px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);

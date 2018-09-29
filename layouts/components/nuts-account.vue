@@ -4,12 +4,17 @@
       <transition-group name="modal">
           <!-- 登录 -->
           <div :key="0" class="modal-content login" v-show="this.page === 'login'" @click.stop>
-            <h2>这是登录窗口</h2>
+            <div class="line">
+              <base-icon-input
+                iconClass="icon-phone"
+                placeholder="请输入手机号码"
+              ></base-icon-input>
+            </div>
           </div>
 
           <!-- 微信登录 -->
           <div :key="1" class="modal-content wxLogin" v-show="this.page === 'wxLogin'" @click.stop>
-            <h2>这是微信登录窗口</h2>
+            <div id="wechatQrcode"></div>
           </div>
 
           <!-- 忘记密码 -->
@@ -27,8 +32,12 @@
 </template>
 
 <script>
+import { BaseInput, BaseIconInput } from '@/components/input/index.js';
 export default {
   name: 'nuts-account',
+  components: {
+    BaseInput, BaseIconInput,
+  },
   props: {
     page: {
       type: String,
@@ -40,6 +49,25 @@ export default {
     },
   },
   methods: {
+    init () {
+      this.onInitQrCode();
+    },
+    onInitQrCode () {
+      const appId = 'wx9e39b0caa894a15f';
+      // let returnUrl = '';
+      const redirectUri = encodeURIComponent('http://api.ranch.nutsbp.com/redirect?key=test.nutsbp.sign-in.qr');
+      var obj = new WxLogin({
+        self_redirect: true,
+        id: 'wechatQrcode',
+        appid: appId,
+        scope: 'snsapi_login',
+        redirect_uri: redirectUri,
+        style: 'black',
+        href: `https://bp.nutsbp.nutsb.com/static/css/wechartQrcode.css`,
+        // href: `http://localhost:8990/static/css/wechartQrcode.css`, // 调试微信二维码样式
+      });
+      return obj;
+    },
     onClose () {
       this.$store.dispatch('GlobalComponent/hide', {
         component: 'NUTSACCOUNT',
@@ -48,6 +76,9 @@ export default {
     afterLeave () {
       this.$emit('afterLeave');
     },
+  },
+  mounted () {
+    this.init();
   },
 };
 </script>
@@ -65,5 +96,10 @@ export default {
     border-radius: 5px;
     z-index: 1000;
     box-sizing: border-box;
+  }
+
+  #wechatQrcode {
+    width: 300px;
+    height: 180px;
   }
 </style>

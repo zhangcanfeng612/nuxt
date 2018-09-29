@@ -22,6 +22,7 @@ module.exports = {
     ],
     script: [
       { src: 'http://az.cdn.nutsbp.com/007/nuts-component/component/jquery/jquery-3.2.1.min.js' },
+      { src: 'http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js' },
     ],
   },
   css: [
@@ -32,6 +33,7 @@ module.exports = {
   plugins:
   [
     { src: '~/plugins/localStorage.js', ssr: false },
+    { src: '~/plugins/vue-lazyload', ssr: true },
   ],
   build: {
     extend (config, { isDev, isClient }) {
@@ -44,7 +46,7 @@ module.exports = {
         });
       }
     },
-    vendor: ['~/plugins/axios.js'],
+    vendor: ['~/plugins/axios.js', 'vue-lazyload'],
   },
   modules: [
     '@nuxtjs/axios',
