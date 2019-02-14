@@ -1,21 +1,24 @@
-const cookieUtil = {
-  get (name) {
-    const tempCookies = document.cookie.split('; ');
-    for (let i = 0; i < tempCookies.length; i++) {
-      const keyValues = tempCookies[i].split('=');
-      if (keyValues[0] === name) {
-        if (keyValues.length > 1) {
-          // return unescape(keyValues[1]);
-          return JSON.parse(unescape(keyValues[1]));
-
-          // return keyValues[1];
-        } else {
-          return '';
-        }
-      }
+export default {
+  /**
+   * read cookie data
+   * @param  {String} key The name of cookie data
+   * @return {Object} The cookie data
+   */
+  get (key) {
+    const arr = document.cookie.match(new RegExp('(^| )' + key + '=([^;]*)(;|$)'));
+    let data = {};
+    if (arr != null) {
+      data = JSON.parse(unescape(arr[2]));
     }
-    return '';
+    return data;
   },
+  /**
+   * write data to cookie
+   * @param  {String} name       The name of cookie data
+   * @param  {Object} value      The data of cookie
+   * @param  {Number} day The expire day
+   * @return {Object} The new cookie data
+   */
   set (name, value = '', day = 7, domain = null) {
     const date = new Date();
     if (day !== -1) {
@@ -23,22 +26,14 @@ const cookieUtil = {
     } else {
       date.setTime(date.getTime() - 1);
     }
-    // if (domain === null) {
-    //   // document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()};path=/;`;
-    //   document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()};path=/;`;
-    // } else {
-    //   document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()};path=/;domain=${domain};`;
-    // }
-    document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()};path=/;domain=nutsbp.com;`;
-    document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()};path=/;domain=nutsb.com;`;
-    document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()};path=/;domain=localhost;`;
+    if (domain === null) {
+      // document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()};path=/;`;
+      document.cookie = `${name}=${JSON.stringify(value)};expires=${date.toUTCString()};path=/;`;
+    } else {
+      document.cookie = `${name}=${JSON.stringify(value)};expires=${date.toUTCString()};path=/;domain=${domain};`;
+    }
   },
   delete (name, domain = null) {
-    this.setCookie(name, '', -1, domain);
-    this.setCookie(name, '', -1, 'nutsbp.com');
-    this.setCookie(name, '', -1, 'nutsb.com');
-    this.setCookie(name, '', -1, 'localhost');
+    this.set(name, '', -1, domain);
   },
 };
-
-export default cookieUtil;

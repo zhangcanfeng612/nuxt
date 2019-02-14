@@ -92,6 +92,11 @@ video {
   vertical-align: baseline;
 }
 
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 /* HTML5 display-role reset for older browsers */
 
 article,
@@ -111,7 +116,7 @@ section {
 html,
 body {
   font-weight: normal;
-  overflow: hidden;
+  overflow: auto;
 }
 
 body {
@@ -154,6 +159,10 @@ canvas {
 
 button {
   border: none;
+  outline: none;
+}
+
+input {
   outline: none;
 }
 

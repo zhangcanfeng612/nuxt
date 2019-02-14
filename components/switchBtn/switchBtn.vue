@@ -33,7 +33,7 @@ export default {
     },
     positionStyle () {
       if (this.checked) {
-        return 'left: 43px';
+        return 'left: 50%';
       }
     },
   },
@@ -50,14 +50,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.switch {
+@import '~assets/global';
+& .switch {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
-
-  width: 80px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   border: none;
 
   & .switch-background {
@@ -66,28 +66,22 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-
-    border-radius: 30px;
-
+    border-radius: 25px;
     transition-property: all;
     transition-duration: .35s;
     transition-timing-function: ease-out;
 
     & .switch-spot {
       position: absolute;
-
-      border-radius: 34px;
-      height: 34px;
-      width: 34px;
-      top: 3px;
-      left: 3px;
-      box-shadow: inset 0 0 0 1px rgb(198, 198, 198);
-
-      background-color: var(--colorWhite);
-      box-sizing: border-box;
-
       content: '';
-
+      border-radius: 50%;
+      height: 94%;
+      width: 48%;
+      top: 2%;
+      left: 1%;
+      box-shadow: inset 0 0 0 1px rgb(198, 198, 198);
+      background-color: #fff;
+      box-sizing: border-box;
       transition-property: all;
       transition-duration: .35s;
       transition-timing-function: cubic-bezier(.59,.01,.5,.99);
@@ -95,11 +89,11 @@ export default {
   }
   & .switch-background-true {
     box-shadow: inset 0 0 0 1px #ff8847;
-    background-color: #ff8847;
+    background-color: @mainColor;
     cursor: pointer;
   }
   & .switch-background-false {
-    box-shadow: inset 0 0 0 1px varrgb(198, 198, 198);
+    box-shadow: inset 0 0 0 1px rgb(198, 198, 198);
     background-color: rgb(198, 198, 198);
     cursor: pointer;
   }

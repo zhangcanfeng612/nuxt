@@ -1,38 +1,39 @@
-import $cookie from '@/plugins/util/cookieUtil.js';
-import $storage from '@/plugins/util/storageUtil.js';
+// import $Auth from '@/plugins/util/authUtil';
+// export default function (context) {
+//   if (process.client) {
+//     console.error('用户是否登录', $Auth.isLogin);
+//     // console.error(process.router);
+//     switch (process.router) {
+//
+//     }
+//   }
+// }
 
-function onCreatSid () {
-  if (!$storage.get('sessionId') && !$cookie.get('nutsbp_user').sid) {
-    let str = 'w';
-    while (str.length < 32) {
-      str += Math.random()
-        .toString(32)
-        .substr(2);
-    }
-    $storage.set('sessionId', str);
-  } else if ($cookie.get('nutsbp_user').sid && !$storage.get('sessionId')) {
-    $storage.set('sessionId', $cookie.get('nutsbp_user').sid);
-  }
-}
+import $Auth from '@/plugins/util/authUtil';
+import _ from 'lodash';
+export default function ({ route, redirect }) {
+  // 需要鉴权的页面
+  const authenticationPages = [
+    // 个人中心
+    '/personal-center/users/info',
+    '/personal-center/users/order',
+    '/personal-center/users/account',
+    '/personal-center/users/password',
+    '/personal-center/users/permission',
+    '/personal-center/users/permission',
 
-function isLogin (callback) {
-  // cookie中存在sid或者storage中存在token, 视为已登录
-  const isSessionId = $cookie.get('nutsbp_user').sid;
-  const isToken = $storage.get('token'); // 在dartcome与旧版3.0疯狂BP使用
-  const sid = $storage.get('sessionId');
-  if (!isSessionId && isToken) {
-    $cookie.write('nutsbp_user', { sid: sid }, 1);
-  }
-
-  callback(isSessionId || isToken);
-}
-
-export default function () {
+    // 我的BP
+    '/nutsbp/mybp',
+    '/nutsbp/recycle',
+  ];
   if (process.client) {
-    isLogin((res) => {
-      if (!res) {
-        onCreatSid();
+    if (!$Auth.isLogin) {
+      if (_.indexOf(authenticationPages, route.path) !== -1) {
+        // 服务端重定向
+        return redirect('/');
       }
-    });
+    } else {
+      console.error('sessionId:', $Auth.isLogin);
+    }
   }
 }

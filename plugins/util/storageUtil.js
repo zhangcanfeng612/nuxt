@@ -29,7 +29,7 @@ export default {
     return data;
   },
   delete (key) {
-    var data = this.get('all');
+    let data = this.get('all');
     delete data[key];
     localStorage.setItem('NUTSBP', JSON.stringify(data));
   },

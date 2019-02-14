@@ -4,7 +4,13 @@ export default ({store}) => {
   createPersistedState({
     key: 'nutsbp_data',
     paths: [
-      'counter.visible',
+      'Banner.ESSAYBANNER',
+      'Banner.BPBANNER',
+      'Banner.TEMPLATEBANNER',
+      'Banner.USERCASE',
+      'Banner.SOURCE',
+      'PersonalInfo.CARDINFO', // cardInfo
+      'PersonalInfo.SIGNINFO', // signInfo
     ],
   })(store);
 };

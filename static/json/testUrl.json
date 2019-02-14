@@ -1,6 +1,16 @@
 {
   "code": 0,
   "data": {
-    "url": "//bp.nutsbp.nutsb.com"
+    "url": "//bp.nutsbp.nutsb.com",
+    "env": "developer",
+    "home": "http://www.nutsbp.com",
+    "api": "https://dev.nutsb.com/nutsbp-editor-server",
+    "apiV1": "//api.bp.nutsb.com",
+    "apiV3": "https://api.ranch.nutsbp.nutsb.com",
+    "imgCdn": "http://az.img.nutsbp.nutsb.com",
+    "caseImgCdn": "http://az.img.nutsbp.com/dev",
+    "apiPr": "http://dartcome.nutsb.com/api/graphql",
+    "nutsCdn": "//az.cdn.nutsbp.nutsb.com",
+    "cdn": "//dev.nutsb.com"
   }
 }

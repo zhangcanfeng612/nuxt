@@ -1,16 +1,23 @@
 <template>
-  <div :class="['icon-input', {'focus': isFocus}, {'error': isInputed && !isFocus && isError}]">
-    <span :class="icon">
-      <img v-if="iconUrl !== ''" :src="iconUrl"/>
-    </span>
-    <nuts-input
-      :type="type"
-      :placeholder="placeholder"
-      :value="inputValue"
-      v-model="inputValue"
-      @focus="onFocus"
-      @change="updateValue($event)"
-    ></nuts-input>
+  <div>
+    <div :class="['icon-input', {'focus': isFocus}, {'error': isInputed && !isFocus && isError}]">
+      <span :class="icon">
+        <img v-if="iconUrl !== ''" :src="iconUrl"/>
+      </span>
+
+      <nuts-input
+        class="base-input"
+        :type="type"
+        :placeholder="placeholder"
+        :value="inputValue"
+        v-model="inputValue"
+        :isCleanStyle="true"
+        @focus="onFocus"
+        @change="updateValue($event)"
+        :readonly="readonly"
+      ></nuts-input>
+    </div>
+    <div class="errorMsg" v-show="this.errorMsg">{{ errorValue }}</div>
   </div>
 </template>
 
@@ -47,12 +54,20 @@ export default {
       type: String,
       default: '',
     },
+    errorMsg: {
+      default: null,
+    },
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
       inputValue: this.value,
       isFocus: false,
       isInputed: false,
+      errorValue: this.errorMsg,
     };
   },
   computed: {
@@ -65,18 +80,19 @@ export default {
       this.isInputed = true;
       this.$emit('input', value);
     },
+    errorMsg (value) {
+      if (value) {
+        this.errorValue = `*${value.message}`;
+      }
+    },
   },
   methods: {
     updateValue (event) {
-      console.error('触发底层');
-
       const value = event.target.value;
       if (value.trim() === this.value) return;
       this.$emit('input', value);
     },
     onFocus (isFocus) {
-      console.error(isFocus);
-
       this.isFocus = isFocus;
     },
   },
@@ -84,31 +100,49 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
 
-.icon-input {
+& .icon-input {
+  display: flex;
   position: relative;
   margin: 0 auto;
   padding: 9px;
-  border: 1px solid #c6c6c6;
+  border: 1px solid #b4b4b4;
   border-radius: 5px;
   box-sizing: border-box;
-  color: #c6c6c6;
+  color: #b4b4b4;
   font-size: 20px;
-  display: flex;
+
   & .icon {
-    padding: 2px;
     width: 15px;
     height: 20px;
     font-size: 16px;
-    color: #c6c6c6;
+    color: #b4b4b4;
+
+    &:before {
+      padding-top: 2px;
+    }
   }
-  & input {
+
+  & .input-box {
     flex: 1;
-    width: 100%;
-    height: 20px;
     margin-left: 10px;
     font-size: 14px;
+
+    & input {
+      /*flex: 1;*/
+      width: 100%;
+      /*height: 20px;*/
+      /*margin-left: 10px;*/
+      /*font-size: 14px;*/
+    }
+  }
+
+  & .errorMsg {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ff3700;
   }
 }
 
@@ -133,6 +167,17 @@ export default {
 
   & .icon {
     color: red;
+  }
+}
+
+& .base-input {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 14px;
+
+  /deep/ input {
+    border-width: 0;
+    outline: none;
   }
 }
 </style>

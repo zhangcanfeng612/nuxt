@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   env: {
     NODE_ENV: process.env.NODE_ENV,
@@ -7,6 +9,9 @@ module.exports = {
   },
   router: {
     middleware: 'onCheckLogin',
+  },
+  render: {
+    resourceHints: false,
   },
   head: {
     title: '疯狂BP-在线制作商业计划书，提供精美模板、商业计划书范文、商业计划书范本大全',
@@ -18,34 +23,62 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '//az.cdn.nutsbp.com/007/image/nuts_bp_pc/web4.0/font_icon/css/fontello.css' },
     ],
     script: [
-      { src: 'http://az.cdn.nutsbp.com/007/nuts-component/component/jquery/jquery-3.2.1.min.js' },
       { src: 'http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js' },
     ],
   },
   css: [
     '~/static/css/reset.css',
     '~/assets/main.css',
+    '~/static/css/font_icon/css/fontello.css',
+    'swiper/dist/css/swiper.css',
   ],
   loading: '~/components/PageLoading.vue',
   plugins:
   [
     { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~/plugins/vue-lazyload', ssr: true },
+    { src: '~/plugins/lazyload', ssr: false },
+    { src: '~/plugins/swiper.js', ssr: false },
   ],
   build: {
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
+    analyze: {
+      analyzerMode: 'static',
+    },
+    filenames: {
+      app: '[name].[chunkhash].js',
+    },
+    extend (config, { isClient }) {
+      if (isClient) {
+        const { vendor } = config.entry;
+        const vendor2 = ['axios', 'swiper', 'vue-lazyload', 'lodash', 'jquery'];
+        config.entry.vendor = vendor.filter(v => !vendor2.includes(v));
+        config.entry.vendor2 = vendor2;
+        const plugin = config.plugins.find((plugin) => ~plugin.chunkNames.indexOf('vendor'));
+        const old = plugin.minChunks;
+        plugin.minChunks = function (module, count) {
+          return old(module, count) && !(/(axios)|(swiper)|(vue-lazyload)|(lodash)|(jquery)/).test(module.context);
+        };
       }
     },
+    /*
+    ** Run ESLINT on save
+    */
+    // extend (config, { isDev, isClient }) {
+    //   if (isDev && isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/,
+    //     });
+    //   }
+    // },
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery',
+      }),
+    ],
     vendor: ['~/plugins/axios.js', 'vue-lazyload'],
   },
   modules: [
@@ -57,8 +90,20 @@ module.exports = {
   },
   proxy: {
     '/api': {
-      target: 'https://cnodejs.org/api/v1',
+      target: '//api.thomas.nutsbp.com',
       pathRewrite: { '^/api': '' },
+    },
+    '/apiV3': {
+      target: '//api.ranch.nutsbp.nutsb.com',
+      pathRewrite: { '^/apiV3': '' },
+    },
+    '/home': {
+      target: '//www.nutsbp.com/html',
+      pathRewrite: { '^/home': '' },
+    },
+    '/apiPr': {
+      target: '//dartcome.nutsb.com/api/graphql',
+      pathRewrite: { '^/apiPr': '' },
     },
   },
 };

@@ -2,33 +2,26 @@ import _ from 'lodash';
 
 export const state = () => ({
   BASELOADING: {
-    show: false,
     payload: {},
   },
   BASEMODAL: {
-    show: false,
-    payload: {
-      sloter: '这是一个弹窗',
-    },
+    payload: {},
   },
   NUTSACCOUNT: {
-    show: false,
-    payload: {
-      page: 'wxLogin',
-    },
+    payload: {},
   },
 });
 
 export const mutations = {
   show (state, payload) {
     payload = payload || {};
-    state[payload.component].show = true;
     state[payload.component].payload = _.assign(payload);
+    state[payload.component].payload.show = true;
   },
   hide (state, payload) {
     payload = payload || {};
-    state[payload.component].show = false;
     state[payload.component].payload = _.assign(payload);
+    state[payload.component].payload.show = false;
   },
 };
 
@@ -42,7 +35,13 @@ export const actions = {
 };
 
 export const getters = {
-  isVIsible: (state) => () => {
-    return state.visible;
+  BASELOADING: (state) => () => {
+    return state.BASELOADING;
+  },
+  BASEMODAL: (state) => () => {
+    return state.BASEMODAL;
+  },
+  NUTSACCOUNT: (state) => () => {
+    return state.NUTSACCOUNT;
   },
 };

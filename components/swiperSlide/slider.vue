@@ -89,7 +89,6 @@
         return this.children.length
       },
     },
-
     methods: {
       updateItems () {
         this.children = this.$children.filter(child => {
