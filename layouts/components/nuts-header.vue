@@ -1,7 +1,7 @@
 <template>
-  <div :class="['nuts-header']" id="header" :transparent-mode="[$route.path === '/']">
+  <div class="nuts-header" id="header" :transparent-mode="[$route.path === '/']">
     <nuxt-link :to="{ path: '/' }" class="logo"></nuxt-link>
-    <ul class="navbar">
+    <ul class="nav-bar">
       <li><nuxt-link :to="{path: '/template'}" data-state-active="false" title="疯狂BP-模版">模版</nuxt-link></li>
       <li><nuxt-link :to="{path: '/service/ghost'}" data-state-active="false" title="疯狂BP-BP定制">BP定制</nuxt-link></li>
       <li><a href="http://www.nutsbp.com/html/Venture_Source/" title="疯狂BP-创业干货" target="_blank">创业干货</a></li>
@@ -9,9 +9,10 @@
       <li><a href="http://www.nutsbp.com/bp-teaching" title="疯狂BP-BP教学" target="_blank">BP教学</a></li>
       <li><nuxt-link :to="{path: '/service/investors'}" data-state-active="false" title="疯狂BP-找投资人">找投资人</nuxt-link></li>
     </ul>
+
     <!-- 登录信息 -->
     <no-ssr>
-      <div class="logininfo">
+      <div class="login-info">
         <div v-if="!isLogin">
           <base-button class="loginBtn" @click="onLogin">登录&nbsp;/&nbsp;注册</base-button>
         </div>
@@ -19,6 +20,10 @@
           <div class="avatar" @mouseover="isShowMenu = true">
             <div class="head"><img :src="headSrc" /></div>
           </div>
+
+          <!-- 消息管理 -->
+          <nuts-message-box></nuts-message-box>
+
           <nuxt-link :to="{ path: '/nutsbp/mybp' }" class="mybp">我的BP</nuxt-link>
         </div>
       </div>
@@ -51,6 +56,8 @@
   import $Cookie from '@/plugins/util/cookieUtil';
   import $Localstorage from '@/plugins/util/storageUtil';
 
+  import NutsMessageBox from '@/layouts/components/nuts-message-box.vue';
+
   let isLogin = $Auth.isLogin;
 
   // const getCardInfo = (uuid) => {
@@ -66,17 +73,11 @@
   };
   export default {
     name: 'nuts-header',
-    components: { BaseButton },
+    components: { BaseButton, NutsMessageBox },
     data () {
       return {
         isLogin: isLogin,
-        isShowMenu: false,
-      };
-    },
-    async asyncData (context) {
-      console.error('当前路由路径', context.route);
-      return {
-        route: context.route,
+        isShowMenu: false, // 是否显示投下下拉框
       };
     },
     methods: {
@@ -84,6 +85,11 @@
         this.$store.dispatch('GlobalComponent/show', {
           component: 'NUTSACCOUNT',
           page: 'login',
+          callback: function () {
+            this.$router.push({
+              path: '/nutsbp/mybp',
+            })
+          }
         });
       },
       onLayout () {
@@ -178,7 +184,7 @@
       background: content-box url('~/static/image/logo.png') no-repeat;
     }
 
-    & .navbar {
+    & .nav-bar {
       width: 675px;
       margin: 0 auto;
       padding: 0;
@@ -221,7 +227,7 @@
       }
     }
 
-    & .logininfo {
+    & .login-info {
       position: absolute;
       right: 35px;
 
@@ -370,7 +376,7 @@
     }
 
     & a {
-      color: rgba(0,0,0,0.6)!important;
+      color: white;
 
       &:hover {
         color: white!important;

@@ -43,6 +43,7 @@
     "eslint-plugin-vue": "^2.1.0",
     "htmlparser2": "^3.10.0",
     "jest-localstorage-mock": "^2.2.0",
+    "prettier": "^1.12.1",
     "vue-lazyload": "^1.2.6"
   }
 }

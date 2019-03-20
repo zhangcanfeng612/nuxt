@@ -2,7 +2,7 @@
   <div>
     <div :class="['icon-input', {'focus': isFocus}, {'error': isInputed && !isFocus && isError}]">
       <span :class="icon">
-        <img v-if="iconUrl !== ''" :src="iconUrl"/>
+        <img v-if="iconUrl !== ''" :src="iconUrl" alt="image"/>
       </span>
 
       <nuts-input

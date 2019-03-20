@@ -21,7 +21,7 @@
         <div class="tab">
           <nuxt-link :to="{path: 'template',query: { type: 'recommend' }}" @click="type = 'recommend'" :class="[{'active': type === 'recommend'}]">网站推荐模板</nuxt-link>
           <nuxt-link :to="{path: 'template',query: { type: 'mechanism' }}" @click="type = 'mechanism'" :class="[{'active': type === 'mechanism'}]">机构推荐模板</nuxt-link >
-          <nuxt-link :to="{path: 'template',query: { type: 'professional' }}" @click="type = 'professional'" :class="[{'active': type === 'professional'}]">专业模板</nuxt-link >
+          <nuxt-link :to="{path: 'template',query: { type: 'profession' }}" @click="type = 'profession'" :class="[{'active': type === 'profession'}]">专业模板</nuxt-link >
         </div>
       </div>
 
@@ -65,7 +65,7 @@
           </li>
 
           <!-- 专业模板 -->
-          <li v-if="type === 'professional'">
+          <li v-if="type === 'profession'">
           </li>
         </ul>
 
@@ -121,7 +121,7 @@
     },
     watchQuery: ['type', 'pageindex', 'industry'],
     async asyncData (context) {
-      let type = qs.parse(context.query).type || 'recommend'; // recommend or mechanism
+      let type = qs.parse(context.query).type || 'recommend'; // recommend or mechanism or profession
       let pageIndex = qs.parse(context.query).pageindex || 1;
       let industry = qs.parse(context.query).industry || '';
 
@@ -151,7 +151,7 @@
       }
 
       // 获取企业模板
-      function getProfessionalTemplate () {
+      function getProfessionTemplate () {
         const url = `${$Server.api}/template_resource`;
         const params = {
           field: 'o',
@@ -189,6 +189,7 @@
             .catch(() => {
               context.error({ statusCode: 404, message: 'BP获取失败' });
             });
+
         case 'mechanism': // 机构推荐模板
           return axios.all([getMechanismTemplate()])
             .then(axios.spread((slides) => {
@@ -204,8 +205,9 @@
             .catch(() => {
               context.error({ statusCode: 404, message: 'BP获取失败' });
             });
-        case 'professional': // 企业模板
-          return axios.all([getProfessionalTemplate()])
+
+        case 'profession': // 企业模板
+          return axios.all([getProfessionTemplate()])
             .then(axios.spread((slides) => {
               return {
                 type: type,

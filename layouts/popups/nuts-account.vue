@@ -71,7 +71,6 @@
         <h2>这是注册账号窗口</h2>
       </div>
 
-
       <!-- copyRight -->
       <div class="copyRight">© 2015 Nutsbp.com, All Rights Reserved.</div>
     </div>
@@ -105,7 +104,7 @@
         reForgetPasswordInput: '',
       };
     },
-    props: ['page', 'show', 'returnUrl'],
+    props: ['page', 'show', 'returnUrl', 'callback'],
     watch: {
       show (val) {
         this.isShow = val;
@@ -160,6 +159,8 @@
             });
 
             // TODO: 获取系统消息
+
+            this.callback();
           });
       },
       onClose () {
@@ -248,7 +249,7 @@
           display: inline-block;
           height: 18px;
           line-height: 18px;
-          margin-left: -6px;
+          margin-left: -8px;
           border-radius: 3px;
           background: #fff3ec;
           border: 1px solid #ff8847;
@@ -313,7 +314,7 @@
 
       & .link {
         & .text {
-          margin-left: -18px;
+          margin-left: -19px;
         }
       }
 

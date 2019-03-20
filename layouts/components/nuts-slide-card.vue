@@ -2,7 +2,7 @@
   <div class="slide-card">
     <div class="box">
       <div class="slide-img">
-        <img v-lazy="imgObj" />
+        <img v-lazy="imgObj" :key="slide.id"/>
       </div>
       <div class="icon icon-delete"></div>
       <div class="block">

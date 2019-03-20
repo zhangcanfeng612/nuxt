@@ -1,14 +1,3 @@
-// import $Auth from '@/plugins/util/authUtil';
-// export default function (context) {
-//   if (process.client) {
-//     console.error('用户是否登录', $Auth.isLogin);
-//     // console.error(process.router);
-//     switch (process.router) {
-//
-//     }
-//   }
-// }
-
 import $Auth from '@/plugins/util/authUtil';
 import _ from 'lodash';
 export default function ({ route, redirect }) {

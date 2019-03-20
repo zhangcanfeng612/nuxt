@@ -14,10 +14,10 @@
               <a><i class="fa" v-bind:class="menu.icon"></i> {{menu.text}} <span class="fa" v-show="!menu.href" v-bind:class="menu.class ? 'fa-chevron-down' : 'fa-chevron-right'"></span></a>
               <!--通过判断class是否active来进行显示和隐藏的控制-->
               <ul class="nav child_menu slide" v-on:click.stop v-show="menu.class">
-                <router-link v-for="childMenu in menu.childMenus" v-bind:key="childMenu.text" class="slide-item" :to="childMenu.href" tag="li"
+                <nuxt-link v-for="childMenu in menu.childMenus" v-bind:key="childMenu.text" class="slide-item" :to="childMenu.href" tag="li"
                              active-class="current-page">
                   <a>{{ childMenu.text }}</a>
-                </router-link>
+                </nuxt-link>
               </ul>
             </li>
           </ul>

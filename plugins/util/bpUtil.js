@@ -62,7 +62,7 @@ export default {
   },
   // 转换自由模板格式
   transferFreeSlideData (params) {
-    const promiseTransfer = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       try {
         const nutsCanvaBpUtil = window.NutsCanvaBpUtil;
         nutsCanvaBpUtil.bpUtil.generateFreeModeData(params.template_resource_id, 2, params.url, function (pages, outline) {
@@ -78,16 +78,15 @@ export default {
         console.error('err', err);
         const error = new Error({
           code: 400,
-          msg: `Transfer data error`,
+          msg: `转换数据错误`,
         });
         reject(error);
       }
     });
-    return promiseTransfer;
   },
   // 转换大纲模板格式
   transferSlideData (params) {
-    const promiseTransfer = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       try {
         const nutsCanvaBpUtil = window.NutsCanvaBpUtil;
         const industryId = params.industryId;
@@ -109,12 +108,11 @@ export default {
         console.error('err', err);
         const error = new Error({
           code: 400,
-          msg: `Transfer data error`,
+          msg: `转换数据错误`,
         });
         reject(error);
       }
     });
-    return promiseTransfer;
   },
 
   // loadJS
@@ -130,7 +128,7 @@ export default {
       script.onerror = () => {
         return reject(new Error({
           code: 404,
-          msg: 'The script is not found!',
+          msg: '脚本加载错误',
         }));
       };
       document.body.appendChild(script);

@@ -40,7 +40,6 @@ export default {
       if (webSite.host.match('bp.nutsbp.com')) {
         config = queryUrlConfig; //  正式地址
       }
-      console.error(config.data);
 
       this._url = config.data.url;
     }

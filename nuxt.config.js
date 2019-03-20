@@ -7,9 +7,6 @@ module.exports = {
   nuxt: {
     'port': '3000',
   },
-  router: {
-    middleware: 'onCheckLogin',
-  },
   render: {
     resourceHints: false,
   },
@@ -88,22 +85,22 @@ module.exports = {
     proxy: true,
     // See https://github.com/nuxt-community/axios-module#options
   },
-  proxy: {
-    '/api': {
-      target: '//api.thomas.nutsbp.com',
-      pathRewrite: { '^/api': '' },
-    },
-    '/apiV3': {
-      target: '//api.ranch.nutsbp.nutsb.com',
-      pathRewrite: { '^/apiV3': '' },
-    },
-    '/home': {
-      target: '//www.nutsbp.com/html',
-      pathRewrite: { '^/home': '' },
-    },
-    '/apiPr': {
-      target: '//dartcome.nutsb.com/api/graphql',
-      pathRewrite: { '^/apiPr': '' },
-    },
-  },
+  // proxy: {
+  //   '/api': {
+  //     target: '//api.thomas.nutsbp.com',
+  //     pathRewrite: { '^/api': '' },
+  //   },
+  //   '/apiV3': {
+  //     target: '//api.ranch.nutsbp.nutsb.com',
+  //     pathRewrite: { '^/apiV3': '' },
+  //   },
+  //   '/home': {
+  //     target: '//www.nutsbp.com/html',
+  //     pathRewrite: { '^/home': '' },
+  //   },
+  //   '/apiPr': {
+  //     target: '//dartcome.nutsb.com/api/graphql',
+  //     pathRewrite: { '^/apiPr': '' },
+  //   },
+  // },
 };

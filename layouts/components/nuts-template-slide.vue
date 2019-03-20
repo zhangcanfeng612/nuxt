@@ -20,6 +20,7 @@
 </template>
 
 <script>
+  import $Auth from '@/plugins/util/authUtil';
   import $Server from '@/server/index';
   import $bpUtil from '@/plugins/util/bpUtil';
   export default {
@@ -52,21 +53,30 @@
     },
     methods: {
       onCreate () {
-        this.$store.dispatch('GlobalComponent/show', {
-          component: 'BASELOADING',
-        });
-        $bpUtil.onCreate(this.template, (res) => {
-          console.error(res);
-          this.$store.dispatch('GlobalComponent/hide', {
+        const isLogin = $Auth.isLogin;
+        if (!isLogin) {
+          this.$store.dispatch('GlobalComponent/show', {
+            component: 'NUTSACCOUNT',
+            page: 'login',
+          });
+        } else {
+          this.$store.dispatch('GlobalComponent/show', {
             component: 'BASELOADING',
           });
-          this.$store.dispatch('GlobalComponent/show', {
-            component: 'BASEMODAL',
-            type: 'success',
-            sloter: '创建完成',
-            // },
+          $bpUtil.onCreate(this.template, (res) => {
+            this.$store.dispatch('GlobalComponent/hide', {
+              component: 'BASELOADING',
+            });
+            this.$store.dispatch('GlobalComponent/show', {
+              component: 'BASEMODAL',
+              type: 'success',
+              sloter: '创建完成',
+            });
+
+            // TODO: 跳转编辑器(auth)
+            console.error(res);
           });
-        });
+        }
       },
     },
   };

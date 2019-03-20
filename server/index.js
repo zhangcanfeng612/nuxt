@@ -7,7 +7,6 @@ import queryUrlConfig from '@/static/json/Url.json';
 
 import $Auth from '@/plugins/util/authUtil';
 import $Storage from '@/plugins/util/storageUtil';
-
 if (process.server) {
   config.baseURL = `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3000}`;
 }

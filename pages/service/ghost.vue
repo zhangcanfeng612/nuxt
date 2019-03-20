@@ -26,7 +26,7 @@
       <div class="number"><span>2376</span> 已预约</div>
       <div class="btns">
         <base-button class="btn">在线客服</base-button>
-        <base-button class="btn" @click="showReservation = true">立即预约</base-button>
+        <base-button class="btn" @click="onReservation">立即预约</base-button>
       </div>
     </div>
 
@@ -154,6 +154,9 @@
   import { BaseIconInput } from '@/components/input/index';
   // import $Server from '@/server/index'; import axios from 'axios';
   import _ from 'lodash';
+
+  import $Auth from '@/plugins/util/authUtil';
+
   export default {
     name: 'service-ghost',
     components: { BaseButton, BaseModal, BaseIconInput },
@@ -263,6 +266,19 @@
         return _.filter(this.$store.state.Banner.USERCASE, (item) => {
           return item.caseType === 'ghostwrite';
         });
+      },
+    },
+    methods: {
+      onReservation () {
+        const isLogin = $Auth.isLogin;
+        if (!isLogin) {
+          this.$store.dispatch('GlobalComponent/show', {
+            component: 'NUTSACCOUNT',
+            page: 'login',
+          });
+        } else {
+          this.showReservation = true;
+        }
       },
     },
   };
