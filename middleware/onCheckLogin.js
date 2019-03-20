@@ -9,7 +9,6 @@ export default function ({ route, redirect }) {
     '/personal-center/users/account',
     '/personal-center/users/password',
     '/personal-center/users/permission',
-    '/personal-center/users/permission',
 
     // 我的BP
     '/nutsbp/mybp',

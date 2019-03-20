@@ -39,12 +39,12 @@ module.exports = {
     { src: '~/plugins/swiper.js', ssr: false },
   ],
   build: {
-    analyze: {
-      analyzerMode: 'static',
-    },
-    filenames: {
-      app: '[name].[chunkhash].js',
-    },
+    // analyze: {
+      // analyzerMode: 'static',
+    // },
+    // filenames: {
+      // app: '[name].[hash].js',
+    // },
     // extend (config, { isClient }) {
     //   if (isClient) {
     //     const { vendor } = config.entry;
