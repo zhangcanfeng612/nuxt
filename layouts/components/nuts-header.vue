@@ -122,20 +122,20 @@
       //         data: cardInfo.data,
       //       });
       //       // TODO: 处理系统消息
-      //       console.error(sysMsg);
+      //       console.log(sysMsg);
       //     }))
       //     .catch((e) => {
-      //       console.error(e);
+      //       console.log(e);
       //     });
       // },
       init () {
         axios.all([getSysMsg()])
           .then(axios.spread((sysMsg) => {
             // TODO: 处理系统消息
-            console.error(sysMsg);
+            console.log(sysMsg);
           }))
           .catch((e) => {
-            console.error(e);
+            console.log(e);
           });
       },
     },
@@ -158,7 +158,7 @@
       },
     },
     mounted () {
-      console.error('当前路径:', this.$route.path);
+      console.log('当前路径:', this.$route.path);
     },
   };
 </script>
@@ -181,7 +181,7 @@
       left: 50px;
       width: 107px;
       height: 40px;
-      background: content-box url('~/static/image/logo.png') no-repeat;
+      background: content-box url('~static/image/logo.png') no-repeat;
     }
 
     & .nav-bar {
@@ -365,7 +365,7 @@
     box-shadow: none;
 
     & .logo {
-      background: content-box url('~/static/image/logo-white.png') no-repeat;
+      background: content-box url('~static/image/logo-white.png') no-repeat;
     }
 
     & .logininfo {

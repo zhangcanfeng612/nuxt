@@ -40,12 +40,12 @@ export default {
     };
   },
   mounted () {
-    console.error(this.text);
+    console.log(this.text);
   },
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
 #Loading {
   position: fixed;

@@ -191,7 +191,7 @@
   };
 </script>
 
-<style scoped>
+<style scoped lang="less">
   .bill-list {
     position: relative;
     margin: 0 auto 30px;

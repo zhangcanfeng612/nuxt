@@ -243,7 +243,7 @@
     },
     watch: {
       payWay (val) {
-        console.error('更换支付方式:', val);
+        console.log('更换支付方式:', val);
       },
     },
     async asyncData (context) {
@@ -315,7 +315,7 @@
 
         // 确定当前优惠券信息
         const checkCoupon = function (couponList, occupyCoupon) {
-          console.error('占用的优惠券:', occupyCoupon);
+          console.log('占用的优惠券:', occupyCoupon);
           if (Object.keys(occupyCoupon).length === 0) {
             if (couponList.length !== 0) {
               return couponList[0];
@@ -524,7 +524,7 @@
               float: right;
               width: 15px;
               height: 15px;
-              background-image: url('~/static/image/pay/checkmark.png');
+              background-image: url('~static/image/pay/checkmark.png');
               background-size: cover;
             }
           }

@@ -35,7 +35,7 @@ export const actions = {
 
 export const getters = {
   CARDINFO: (getters) => {
-    console.error('getters', getters);
+    console.log('getters', getters);
     // return state.CARDINFO;
   },
 };

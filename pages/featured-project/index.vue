@@ -72,7 +72,7 @@
           // 获取我的BP
           axios.all([this.getSlideList()])
             .then(axios.spread((slides) => {
-              console.error(slides);
+              console.log(slides);
               this.slides = _.remove(slides.data, (item) => {
                 return !item.false_delete_time;
               });
@@ -123,13 +123,13 @@
       background: #ffc04f;
       font-size: 16px;
       cursor: pointer;
-      background: url('~/static/image/featuredproject/btn_submit_normal.png');
+      background: url('~static/image/featuredproject/btn_submit_normal.png');
       background-size: cover;
       background-repeat: no-repeat;
     }
 
     & .enterBtn:hover {
-      background: url('~/static/image/featuredproject/btn_submit_hover.png') no-repeat;
+      background: url('~static/image/featuredproject/btn_submit_hover.png') no-repeat;
       background-size: cover;
     }
 

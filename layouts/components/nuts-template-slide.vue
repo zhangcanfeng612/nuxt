@@ -74,7 +74,7 @@
             });
 
             // TODO: 跳转编辑器(auth)
-            console.error(res);
+            console.log(res);
           });
         }
       },

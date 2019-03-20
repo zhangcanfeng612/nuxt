@@ -9,7 +9,7 @@ export const state = () => ({
 
 export const mutations = {
   save (state, data) {
-    console.error(data.type);
+    console.log(data.type);
     state[data.type] = data.data;
   },
   modify (state, data) {

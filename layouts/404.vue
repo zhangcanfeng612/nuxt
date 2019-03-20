@@ -16,6 +16,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('~/static/image/login_bg.jpg');
+  background: url('~static/image/login_bg.jpg');
 }
 </style>

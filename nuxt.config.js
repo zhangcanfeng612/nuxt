@@ -26,9 +26,9 @@ module.exports = {
     ],
   },
   css: [
-    '~/static/css/reset.css',
+    '~static/css/reset.css',
     '~/assets/main.css',
-    '~/static/css/font_icon/css/fontello.css',
+    '~static/css/font_icon/css/fontello.css',
     'swiper/dist/css/swiper.css',
   ],
   loading: '~/components/PageLoading.vue',
@@ -45,38 +45,37 @@ module.exports = {
     filenames: {
       app: '[name].[chunkhash].js',
     },
-    extend (config, { isClient }) {
-      if (isClient) {
-        const { vendor } = config.entry;
-        const vendor2 = ['axios', 'swiper', 'vue-lazyload', 'lodash', 'jquery'];
-        config.entry.vendor = vendor.filter(v => !vendor2.includes(v));
-        config.entry.vendor2 = vendor2;
-        const plugin = config.plugins.find((plugin) => ~plugin.chunkNames.indexOf('vendor'));
-        const old = plugin.minChunks;
-        plugin.minChunks = function (module, count) {
-          return old(module, count) && !(/(axios)|(swiper)|(vue-lazyload)|(lodash)|(jquery)/).test(module.context);
-        };
-      }
-    },
+    // extend (config, { isClient }) {
+    //   if (isClient) {
+    //     const { vendor } = config.entry;
+    //     const vendor2 = ['axios', 'swiper', 'vue-lazyload', 'lodash', 'jquery'];
+    //     config.entry.vendor = vendor.filter(v => !vendor2.includes(v));
+    //     config.entry.vendor2 = vendor2;
+    //     const plugin = config.plugins.find((plugin) => ~plugin.chunkNames.indexOf('vendor'));
+    //     const old = plugin.minChunks;
+    //     plugin.minChunks = function (module, count) {
+    //       return old(module, count) && !(/(axios)|(swiper)|(vue-lazyload)|(lodash)|(jquery)/).test(module.context);
+    //     };
+    //   }
+    // },
     /*
     ** Run ESLINT on save
     */
-    // extend (config, { isDev, isClient }) {
-    //   if (isDev && isClient) {
-    //     config.module.rules.push({
-    //       enforce: 'pre',
-    //       test: /\.(js|vue)$/,
-    //       loader: 'eslint-loader',
-    //       exclude: /(node_modules)/,
-    //     });
-    //   }
-    // },
+    extend (config, { isDev }) {
+      if (isDev && process.client) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    },
     plugins: [
       new webpack.ProvidePlugin({
         '$': 'jquery',
       }),
     ],
-    vendor: ['~/plugins/axios.js', 'vue-lazyload'],
   },
   modules: [
     '@nuxtjs/axios',

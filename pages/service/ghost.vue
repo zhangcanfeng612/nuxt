@@ -8,7 +8,7 @@
     </div>
 
     <div class="partOne">
-      <img src="~/static/image/customized/title_bg.png" class="bg">
+      <img src="~static/image/customized/title_bg.png" class="bg">
       <div class="content">
         <div class="title"><span>商业计划书定制服务</span></div>
         <div class="price">价格: 根据项目情况咨询客服</div>
@@ -17,11 +17,11 @@
 
     <div class="partTwo">
       <div class="avatarList">
-        <img src="~/static/image/custom_head_user1.jpg">
-        <img src="~/static/image/custom_head_user2.jpg">
-        <img src="~/static/image/custom_head_user3.jpg">
-        <img src="~/static/image/custom_head_user4.jpg">
-        <img src="~/static/image/custom_head_user5.jpg">
+        <img src="~static/image/custom_head_user1.jpg">
+        <img src="~static/image/custom_head_user2.jpg">
+        <img src="~static/image/custom_head_user3.jpg">
+        <img src="~static/image/custom_head_user4.jpg">
+        <img src="~static/image/custom_head_user5.jpg">
       </div>
       <div class="number"><span>2376</span> 已预约</div>
       <div class="btns">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="partThree">
-      <img src="~/static/image/customized/custom_title.png">
+      <img src="~static/image/customized/custom_title.png">
       <div class="textOne">如果你对商业计划书还是一头雾水，让我们来帮助你！一对一专家服务，为你量身定制BP！</div>
       <div class="textTwo">理清商业思路，凸显项目核心价值，<span>写出投资人想要的商业计划书！</span></div>
     </div>
@@ -347,7 +347,7 @@
 
    & .partOne {
      position: relative;
-     background: 50% 0 url('~/static/image/customized/custom_banner.jpg') no-repeat;
+     background: 50% 0 url('~static/image/customized/custom_banner.jpg') no-repeat;
      height: 300px;
      text-align: center;
      color: #fff;
@@ -776,7 +776,7 @@
 
      & .content {
        padding: 50px 0 0 0;
-       background: 50% 0 url('~/static/image/customized/evaluate_bg.png') no-repeat;
+       background: 50% 0 url('~static/image/customized/evaluate_bg.png') no-repeat;
 
        & .swiper-container {
          padding-bottom: 60px;

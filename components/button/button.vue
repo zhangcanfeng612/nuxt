@@ -24,7 +24,7 @@
   };
 </script>
 
-<style scoped>
+<style scoped lang="less">
   button {
     position: relative;
     display: inline-block;

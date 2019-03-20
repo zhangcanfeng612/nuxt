@@ -22,7 +22,7 @@ export default function ({ route, redirect }) {
         return redirect('/');
       }
     } else {
-      console.error('sessionId:', $Auth.isLogin);
+      console.log('sessionId:', $Auth.isLogin);
     }
   }
 }

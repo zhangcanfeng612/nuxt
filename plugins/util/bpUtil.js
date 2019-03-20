@@ -75,7 +75,7 @@ export default {
           resolve(slide);
         });
       } catch (err) {
-        console.error('err', err);
+        console.log('err', err);
         const error = new Error({
           code: 400,
           msg: `转换数据错误`,
@@ -105,7 +105,7 @@ export default {
           resolve(slide);
         });
       } catch (err) {
-        console.error('err', err);
+        console.log('err', err);
         const error = new Error({
           code: 400,
           msg: `转换数据错误`,

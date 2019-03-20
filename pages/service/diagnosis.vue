@@ -8,7 +8,7 @@
     </div>
 
     <div class="partOne">
-      <img src="~/static/image/diagnosis/title_bg.png" class="bg">
+      <img src="~static/image/diagnosis/title_bg.png" class="bg">
       <div class="content">
         <div class="title"><span>商业计划书诊断服务</span></div>
         <div class="price" v-if="isActive(this.diagnosisData)">{{ price }}</div>
@@ -17,11 +17,11 @@
 
     <div class="partTwo">
       <div class="avatarList">
-        <img src="~/static/image/custom_head_user7.jpg">
-        <img src="~/static/image/custom_head_user8.jpg">
-        <img src="~/static/image/custom_head_user9.jpg">
-        <img src="~/static/image/custom_head_user10.jpg">
-        <img src="~/static/image/custom_head_user11.jpg">
+        <img src="~static/image/custom_head_user7.jpg">
+        <img src="~static/image/custom_head_user8.jpg">
+        <img src="~static/image/custom_head_user9.jpg">
+        <img src="~static/image/custom_head_user10.jpg">
+        <img src="~static/image/custom_head_user11.jpg">
       </div>
       <div class="number"><span>{{ amount }}</span> 已预约</div>
       <div class="btns">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="partThree">
-      <img src="~/static/image/diagnosis/diagnosis_title.png">
+      <img src="~static/image/diagnosis/diagnosis_title.png">
       <div class="textOne">改了无数次BP,还是不知道问题在哪里?</div>
       <div class="textTwo">疯狂BP全新诊断服务，为你<span>写全方位扫描项目、行业、BP内容及逻辑。</span>让你一步到位，做出最佳BP！</div>
     </div>
@@ -255,7 +255,7 @@
                 };
                 $Server.post(url, data)
                   .then((res) => {
-                    console.error(`完成创建订单:`, res);
+                    console.log(`完成创建订单:`, res);
                     // 4. 跳转支付页
                     this.$router.push({
                       path: '/pay',
@@ -364,7 +364,7 @@
 
     & .partOne {
       position: relative;
-      background: 50% 0 url('~/static/image/diagnosis/diagnosis_banner.jpg') no-repeat;
+      background: 50% 0 url('~static/image/diagnosis/diagnosis_banner.jpg') no-repeat;
       height: 300px;
       text-align: center;
       color: #fff;
@@ -761,7 +761,7 @@
 
       & .content {
         padding: 50px 0 0 0;
-        background: 50% 0 url('~/static/image/customized/evaluate_bg.png') no-repeat;
+        background: 50% 0 url('~static/image/customized/evaluate_bg.png') no-repeat;
 
         & .swiper-container {
           padding-bottom: 60px;

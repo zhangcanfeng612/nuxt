@@ -82,13 +82,13 @@
     // 注意：beforeCreate与created在客户端与服务端均会被调用
     beforeCreate () {
       $Server.init();
-      // console.error(`是否登录${$Auth.isLogin()}`);
+      // console.log(`是否登录${$Auth.isLogin()}`);
     },
     created () {
-      console.error('cardInfo', this.cardInfo);
-      console.error('signInfo', this.signInfo);
-      // console.error(this.GlobalComponentStatus.BASEMODAL.payload.slot);
-      // console.error(`env:${$Config.env.NODE_ENV}`);
+      console.log('cardInfo', this.cardInfo);
+      console.log('signInfo', this.signInfo);
+      // console.log(this.GlobalComponentStatus.BASEMODAL.payload.slot);
+      // console.log(`env:${$Config.env.NODE_ENV}`);
     },
     mounted () {
       /**
@@ -104,7 +104,7 @@
 
       // 捕获全局错误
       window.addEventListener('error', (error) => {
-        console.error('error触发');
+        console.log('error触发');
         this.$store.dispatch('GlobalComponent/show', {
           component: 'BASEMODAL',
           type: 'fail',
@@ -123,7 +123,7 @@
 
       window.addEventListener('rejectionhandled', (error) => {
         event.preventDefault();
-        console.error('rejectionhandled触发');
+        console.log('rejectionhandled触发');
         this.$store.dispatch('GlobalComponent/show', {
           component: 'BASEMODAL',
           type: 'fail',

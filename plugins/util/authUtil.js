@@ -5,7 +5,7 @@ const auth = {
   onSplitServerCookie (name) {
     if (process.__COOKIE__) {
       let Cookies = {};
-      // console.error(process.__COOKIE__);
+      // console.log(process.__COOKIE__);
       process.__COOKIE__.forEach(function (e) {
         let parts = e.split('=');
         Cookies[ parts[ 0 ].trim() ] = (parts[ 1 ] || '').trim();

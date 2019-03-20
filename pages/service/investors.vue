@@ -1,7 +1,7 @@
 <template>
   <div class="service-investors">
     <nuxt-link  class="ad" :to="{path: 'featured-project'}"  target="_blank">
-      <img src="~/static/image/banner_invest_selection.jpg" />
+      <img src="~static/image/banner_invest_selection.jpg" />
     </nuxt-link>
 
 

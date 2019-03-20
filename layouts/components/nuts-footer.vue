@@ -93,7 +93,7 @@ export default {
   & .nuts-footer {
     position: relative;
     height: 425px;
-    background: url('~/static/image/footer/bg.jpg') repeat-x center;
+    background: url('~static/image/footer/bg.jpg') repeat-x center;
     background-color: transparent;
     background-size: cover;
     margin-top: 130px;
@@ -117,7 +117,7 @@ export default {
       bottom: 0;
       width: 150px;
       height: 150px;
-      background-image: url('~/static/image/footer/ball1.png');
+      background-image: url('~static/image/footer/ball1.png');
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 50%;
@@ -138,7 +138,7 @@ export default {
     & .two:after {
       width: 100px;
       height: 100px;
-      background-image: url('~/static/image/footer/ball2.png');
+      background-image: url('~static/image/footer/ball2.png');
       animation-delay: -1s;
     }
 
@@ -151,7 +151,7 @@ export default {
     & .three:after {
       width: 110px;
       height: 110px;
-      background-image: url('~/static/image/footer/ball3.png');
+      background-image: url('~static/image/footer/ball3.png');
       animation-delay: -2s;
     }
 
@@ -164,7 +164,7 @@ export default {
     & .four:after {
       width: 85px;
       height: 85px;
-      background-image: url('~/static/image/footer/ball4.png');
+      background-image: url('~static/image/footer/ball4.png');
       animation-delay: -3s;
     }
 
@@ -177,7 +177,7 @@ export default {
     & .five:after {
       width: 89px;
       height: 90px;
-      background-image: url('~/static/image/footer/ball5.png');
+      background-image: url('~static/image/footer/ball5.png');
       animation-delay: -4s;
     }
 
@@ -350,17 +350,17 @@ export default {
 
     & .weichat2 {
       margin-right: 15px;
-      background-image: url('~/static/image/footer/weichat-qrcode2.jpg');
+      background-image: url('~static/image/footer/weichat-qrcode2.jpg');
     }
 
     & .weichat {
       margin-right: 15px;
-      background-image: url('~/static/image/footer/weichat-qrcode.jpg');
+      background-image: url('~static/image/footer/weichat-qrcode.jpg');
     }
 
     & .download {
       margin-right: 15px;
-      background-image: url('~/static/image/footer/download-qrcode.jpg');
+      background-image: url('~static/image/footer/download-qrcode.jpg');
     }
 
     & .contact {

@@ -285,7 +285,7 @@
   & .site {
     margin-top: -70px;
     padding-top: 70px;
-    background: url('~/static/image/site/bg.png') repeat-x center 0;
+    background: url('~static/image/site/bg.png') repeat-x center 0;
 
     & h3 {
       font-size: 28px;
@@ -341,7 +341,7 @@
           height: 131px;
           border-radius: 50%;
           animation: scale 10s linear infinite;
-          background-image: url('~/static/image/site/ball1.png');
+          background-image: url('~static/image/site/ball1.png');
           background-size: cover;
           background-repeat: no-repeat;
         }
@@ -355,7 +355,7 @@
         .two:after {
           width: 85px;
           height: 85px;
-          background-image: url('~/static/image/site/ball2.png');
+          background-image: url('~static/image/site/ball2.png');
           animation-delay: -1s;
         }
 
@@ -368,7 +368,7 @@
         .three:after {
           width: 162px;
           height: 162px;
-          background-image: url('~/static/image/site/ball3.png');
+          background-image: url('~static/image/site/ball3.png');
           animation-delay: -2s;
         }
 
@@ -381,7 +381,7 @@
         .four:after {
           width: 100px;
           height: 100px;
-          background-image: url('~/static/image/site/ball4.png');
+          background-image: url('~static/image/site/ball4.png');
           animation-delay: -3s;
         }
 
@@ -394,7 +394,7 @@
         .five:after {
           width: 120px;
           height: 120px;
-          background-image: url('~/static/image/site/ball5.png');
+          background-image: url('~static/image/site/ball5.png');
           animation-delay: -4s;
         }
 
@@ -407,7 +407,7 @@
         .six:after {
           width: 50px;
           height: 50px;
-          background-image: url('~/static/image/site/ball6.png');
+          background-image: url('~static/image/site/ball6.png');
           animation-delay: -5s;
         }
       }

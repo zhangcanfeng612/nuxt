@@ -127,7 +127,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .slider-item,
 .wrap {
   position: absolute;

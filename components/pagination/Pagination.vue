@@ -124,7 +124,7 @@
     },
     watch: {
       pageIndex (val) {
-        console.error('当前页数更新为:', val);
+        console.log('当前页数更新为:', val);
         this.current_page = val;
       },
       total (val) {
@@ -139,7 +139,7 @@
   };
 </script>
 
-<style scoped>
+<style scoped lang="less">
   .pagination {
     display: block;
     padding: 0;

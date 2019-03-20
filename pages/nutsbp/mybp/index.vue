@@ -66,10 +66,10 @@
     },
     // try {
     //   const res = await $Server.get(url, data);
-    //   console.error(res);
+    //   console.log(res);
     // } catch (err) {
     //   const e = new Error(err);
-    //   console.error(e);
+    //   console.log(e);
     // }
     watchQuery: ['pageIndex'],
     async asyncData (context) {

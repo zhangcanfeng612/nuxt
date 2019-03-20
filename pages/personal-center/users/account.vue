@@ -39,7 +39,7 @@
     },
     methods: {
       init () {
-        console.error(this.signInfo);
+        console.log(this.signInfo);
         this.signInfo.auth.forEach(item => {
           if (item.type === 1) {
             this.phone = item.uid;
