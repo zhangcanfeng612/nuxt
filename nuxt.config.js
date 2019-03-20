@@ -5,7 +5,7 @@ module.exports = {
     NODE_ENV: process.env.NODE_ENV,
   },
   nuxt: {
-    'port': '3000',
+    'port': '0412',
   },
   render: {
     resourceHints: false,
