@@ -6,15 +6,22 @@
     <!-- 全局组件 -->
     <no-ssr>
       <div class="GlobalComponent">
+        <!-- loading -->
         <base-loading v-if="GlobalComponentStatus.BASELOADING.payload.show"
                       v-bind="GlobalComponentStatus.BASELOADING.payload" />
 
+        <!-- 消息弹窗 -->
         <base-modal v-model="GlobalComponentStatus.BASEMODAL.payload.show"
                     v-bind="GlobalComponentStatus.BASEMODAL.payload"
                     :backdrop=true />
 
+        <!-- 登录注册弹窗 -->
         <nuts-account v-model="GlobalComponentStatus.NUTSACCOUNT.payload.show"
                       v-bind="GlobalComponentStatus.NUTSACCOUNT.payload" />
+
+        <!-- 支付弹窗 -->
+        <!--<nuts-pay v-model="GlobalComponentStatus.NUTSPAY.payload.show"-->
+                  <!--v-bind="GlobalComponentStatus.NUTSPAY.payload" />-->
       </div>
     </no-ssr>
   </div>
@@ -31,6 +38,7 @@
 
   // 疯狂BP业务弹窗
   import NutsAccount from '@/layouts/popups/nuts-account';
+  // import NutsPay from '@/layouts/popups/nuts-pay';
 
   import { mapState } from 'vuex';
   // import axios from 'axios';
@@ -54,6 +62,7 @@
       BaseLoading,
       BaseModal,
       NutsAccount,
+      // NutsPay,
     },
     computed: {
       routeMapHead,

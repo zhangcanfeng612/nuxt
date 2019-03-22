@@ -3,12 +3,7 @@
     <div class="area1">
       <div class="container">
         <div class="intro">
-          <div class="parall one"></div>
-          <div class="parall two"></div>
-          <div class="parall three"></div>
-          <div class="parall four"></div>
-          <div class="parall five"></div>
-          <div class="parall six"></div>
+          <div class="parall" v-for="item in 6" :key="item"></div>
         </div>
         <h1>在线制作</h1>
         <h1>投资人想要的商业计划书</h1>
@@ -127,7 +122,7 @@
       </div>
     </div>
 
-    <base-back-top></base-back-top>
+    <base-back-top />
   </section>
 </template>
 
@@ -328,87 +323,87 @@
           top: 238px;
           left: -2%;
           text-align: center;
-        }
 
-        .parall:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 131px;
-          height: 131px;
-          border-radius: 50%;
-          animation: scale 10s linear infinite;
-          background-image: url('~static/image/site/ball1.png');
-          background-size: cover;
-          background-repeat: no-repeat;
-        }
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 131px;
+            height: 131px;
+            border-radius: 50%;
+            animation: scale 10s linear infinite;
+            background-image: url('~static/image/site/ball1.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
 
-        .two {
-          top: 365px;
-          left: 36%;
-        }
+          &:nth-child(2) {
+            top: 365px;
+            left: 36%;
 
-        .two:before,
-        .two:after {
-          width: 85px;
-          height: 85px;
-          background-image: url('~static/image/site/ball2.png');
-          animation-delay: -1s;
-        }
+            &:before,
+            &:after {
+              width: 85px;
+              height: 85px;
+              background-image: url('~static/image/site/ball2.png');
+              animation-delay: -1s;
+            }
+          }
 
-        .three {
-          top: 133px;
-          left: 85%;
-        }
+          &:nth-child(3) {
+            top: 133px;
+            left: 85%;
 
-        .three:before,
-        .three:after {
-          width: 162px;
-          height: 162px;
-          background-image: url('~static/image/site/ball3.png');
-          animation-delay: -2s;
-        }
+            &:before,
+            &:after {
+              width: 162px;
+              height: 162px;
+              background-image: url('~static/image/site/ball3.png');
+              animation-delay: -2s;
+            }
+          }
 
-        .four {
-          top: 614px;
-          left: 10%;
-        }
+          &:nth-child(4) {
+            top: 614px;
+            left: 10%;
 
-        .four:before,
-        .four:after {
-          width: 100px;
-          height: 100px;
-          background-image: url('~static/image/site/ball4.png');
-          animation-delay: -3s;
-        }
+            &:before,
+            &:after {
+              width: 100px;
+              height: 100px;
+              background-image: url('~static/image/site/ball4.png');
+              animation-delay: -3s;
+            }
+          }
 
-        .five {
-          top: 679px;
-          left: 80%;
-        }
+          &:nth-child(5) {
+            top: 679px;
+            left: 80%;
 
-        .five:before,
-        .five:after {
-          width: 120px;
-          height: 120px;
-          background-image: url('~static/image/site/ball5.png');
-          animation-delay: -4s;
-        }
+            &:before,
+            &:after {
+              width: 120px;
+              height: 120px;
+              background-image: url('~static/image/site/ball5.png');
+              animation-delay: -4s;
+            }
+          }
 
-        .six {
-          top: 533px;
-          left: 90%;
-        }
+          &:nth-child(6) {
+            top: 533px;
+            left: 90%;
 
-        .six:before,
-        .six:after {
-          width: 50px;
-          height: 50px;
-          background-image: url('~static/image/site/ball6.png');
-          animation-delay: -5s;
+            &:after,
+            &:before {
+              width: 50px;
+              height: 50px;
+              background-image: url('~static/image/site/ball6.png');
+              animation-delay: -5s;
+            }
+          }
         }
       }
 

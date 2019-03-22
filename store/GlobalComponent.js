@@ -10,6 +10,9 @@ export const state = () => ({
   NUTSACCOUNT: {
     payload: {},
   },
+  NUTSPAY: {
+    payload: {},
+  },
 });
 
 export const mutations = {
@@ -43,5 +46,8 @@ export const getters = {
   },
   NUTSACCOUNT: (state) => () => {
     return state.NUTSACCOUNT;
+  },
+  NUTSPAY: (state) => () => {
+    return state.NUTSPAY;
   },
 };

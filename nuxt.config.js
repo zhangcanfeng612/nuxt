@@ -39,12 +39,6 @@ module.exports = {
     { src: '~/plugins/swiper.js', ssr: false },
   ],
   build: {
-    // analyze: {
-      // analyzerMode: 'static',
-    // },
-    // filenames: {
-      // app: '[name].[hash].js',
-    // },
     // extend (config, { isClient }) {
     //   if (isClient) {
     //     const { vendor } = config.entry;
@@ -61,15 +55,20 @@ module.exports = {
     /*
     ** Run ESLINT on save
     */
-    extend (config, { isDev }) {
-      if (isDev && process.client) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
+    extend(config) {
+      const tsLoader = {
+        loader: 'ts-loader',
+        options: { appendTsSuffixTo: [/\.vue$/], transpileOnly: true },
+        exclude: [/vendor/, /\.nuxt/],
+      };
+      config.module.rules.push({
+        test: /((client|server)\.js)|(\.tsx?)$/,
+        ...tsLoader,
+      });
+      config.resolve.extensions.push('.ts');
+      config.module.rules
+        .filter((rule) => rule.loader === 'vue-loader')
+        .map((rule) => rule.options.loaders = { ts: tsLoader })
     },
     plugins: [
       new webpack.ProvidePlugin({

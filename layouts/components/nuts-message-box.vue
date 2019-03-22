@@ -70,6 +70,7 @@
         $Server.get(url, data)
           .then((res) => {
             this.unReadList = res.data.list;
+            console.error(this.unReadList);
           });
       },
     },
