@@ -1,20 +1,20 @@
 ![](https://i.loli.net/2018/11/27/5bfce3cac5a2a.png)
 
-## 构建安装程序
+## 构建安装程序(最好使用yarn)
 
 ``` bash
 # 安装依赖
-$ npm install # Or yarn install
+$ yarn install # Or yarn install
 
 # 服务将热更新运行于 localhost:3000
-$ npm run dev
+$ yarn run dev
 
 # 构建项目 & 运行服务
-$ npm run build
-$ npm start
+$ yarn run build
+$ yarn start
 
 # 生成静态项目
-$ npm run generate
+$ yarn run generate
 ```
 
 有关工作原理的详细说明，请查看[Nuxt.js docs]（https://github.com/nuxt/nuxt.js）
