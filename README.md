@@ -1,6 +1,6 @@
 ![](https://i.loli.net/2018/11/27/5bfce3cac5a2a.png)
 
-## 构建安装程序(最好使用yarn)
+## 构建安装程序
 
 ``` bash
 # 安装依赖
