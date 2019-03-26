@@ -4,7 +4,7 @@
 
 ``` bash
 # 安装依赖
-$ yarn install # Or yarn install
+$ rm -rf yarn.lock & yarn install
 
 # 服务将热更新运行于 localhost:3000
 $ yarn run dev
