@@ -1,6 +1,6 @@
 ![](https://i.loli.net/2018/11/27/5bfce3cac5a2a.png)
 
-## 构建安装程序
+## 构建安装程序:
 
 ``` bash
 # 安装依赖
@@ -19,7 +19,7 @@ $ yarn run generate
 
 有关工作原理的详细说明，请查看[Nuxt.js docs]（https://github.com/nuxt/nuxt.js）
 
-## 项目目录说明
+## 项目目录说明:
 ```
 |-- code
     |-- .eslintrc.json       // eslint 配置文件
@@ -27,7 +27,7 @@ $ yarn run generate
     |-- package.json         // 依赖
     |-- .nuxt                // 忽略
     |-- assets               // 此目录包含未编译的资源，例如LESS、SASS或JavaScript。
-    |-- components           // 公共组建库
+    |-- components           // 公共组件库
     |-- dist                 // 静态文件目录 static 用于存放应用的静态文件，此类文件不会被 Nuxt.js 调用 Webpack 进行构建编译处理。 服务器启动的时候，该目录下的文件会映射至应用的根路径 / 下。
     |-- layouts              // 用于组织应用的布局组件。
     |-- middleware           // 用于存放应用的中间件
@@ -38,5 +38,10 @@ $ yarn run generate
     |-- store                // 目录用于组织应用的 Vuex 状态树 文件。
 ```
 
+## TODO:
+- [] 捕获全局请求错误 -> errorUtil
+- [] 整理一个组件页面
+- [] 服务器传递用户验证资料过程有问题
+  
 
 

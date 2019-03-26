@@ -22,7 +22,7 @@ export const actions = {
     // TODO：2. 如果传递cookie会不会造成用户污染
     if (process.server) {
       // res.setHeader('Set-Cookie', [`sessionId=${sid}`]); // Server-side
-      process.__COOKIE__ = context.req.headers.cookie && context.req.headers.cookie.split(';');
+      // process.__COOKIE__ = context.req.headers.cookie && context.req.headers.cookie.split(';');
     }
 
     // 初始化axios

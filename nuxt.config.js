@@ -39,22 +39,7 @@ module.exports = {
     { src: '~/plugins/swiper.js', ssr: false },
   ],
   build: {
-    // extend (config, { isClient }) {
-    //   if (isClient) {
-    //     const { vendor } = config.entry;
-    //     const vendor2 = ['axios', 'swiper', 'vue-lazyload', 'lodash', 'jquery'];
-    //     config.entry.vendor = vendor.filter(v => !vendor2.includes(v));
-    //     config.entry.vendor2 = vendor2;
-    //     const plugin = config.plugins.find((plugin) => ~plugin.chunkNames.indexOf('vendor'));
-    //     const old = plugin.minChunks;
-    //     plugin.minChunks = function (module, count) {
-    //       return old(module, count) && !(/(axios)|(swiper)|(vue-lazyload)|(lodash)|(jquery)/).test(module.context);
-    //     };
-    //   }
-    // },
-    /*
-    ** Run ESLINT on save
-    */
+    /* Run LINT on save */
     extend(config) {
       const tsLoader = {
         loader: 'ts-loader',

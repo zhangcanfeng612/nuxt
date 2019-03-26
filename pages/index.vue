@@ -189,9 +189,9 @@
       return {
         features: [
           {upper: ['随心编辑', '多端同步'], lower: '随时随地查阅编辑', img: require('~/static/image/site/function1.jpg'), svg: 'icon-phone'},
-          {upper: ['随心编辑', '多端同步'], lower: '随时随地查阅编辑', img: require('~/static/image/site/function2.jpg'), svg: 'icon-phone'},
-          {upper: ['随心编辑', '多端同步'], lower: '随时随地查阅编辑', img: require('~/static/image/site/function3.jpg'), svg: 'icon-phone'},
-          {upper: ['随心编辑', '多端同步'], lower: '随时随地查阅编辑', img: require('~/static/image/site/function4.jpg'), svg: 'icon-phone'},
+          {upper: ['模板众多', '范文丰富'], lower: '大量的专业模板与范文', img: require('~/static/image/site/function2.jpg'), svg: 'icon-phone'},
+          {upper: ['一键投递', '高效融资'], lower: '一键投递靠谱投资人', img: require('~/static/image/site/function3.jpg'), svg: 'icon-phone'},
+          {upper: ['多种格式', '快速导出'], lower: '快速导出PPT、PDF、加密链接等多种形式', img: require('~/static/image/site/function4.jpg'), svg: 'icon-phone'},
         ],
         service: [
           {img: require('~/static/image/site/service1.png')},
@@ -280,7 +280,7 @@
   & .site {
     margin-top: -70px;
     padding-top: 70px;
-    background: url('~static/image/site/bg.png') repeat-x center 0;
+    background: url('~static/image/site/bg.jpg') repeat-x center 0;
 
     & h3 {
       font-size: 28px;
