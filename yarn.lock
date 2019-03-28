@@ -974,6 +974,10 @@
   dependencies:
     "@types/node" "*"
 
+"@types/cookie@^0.3.1":
+  version "0.3.2"
+  resolved "http://registry.npm.taobao.org/@types/cookie/download/@types/cookie-0.3.2.tgz#453f4b14b25da6a8ea4494842dedcbf0151deef9"
+
 "@types/etag@^1.8.0":
   version "1.8.0"
   resolved "http://registry.npm.taobao.org/@types/etag/download/@types/etag-1.8.0.tgz#37f0b1f3ea46da7ae319bbedb607e375b4c99f7e"
@@ -2181,6 +2185,20 @@ convert-source-map@^1.1.0:
 cookie-signature@1.0.6:
   version "1.0.6"
   resolved "http://registry.npm.taobao.org/cookie-signature/download/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
+
+cookie-universal-nuxt@^2.0.14:
+  version "2.0.14"
+  resolved "http://registry.npm.taobao.org/cookie-universal-nuxt/download/cookie-universal-nuxt-2.0.14.tgz#6fdf8e928eadd7611c04a57614fe2e29b60eb971"
+  dependencies:
+    "@types/cookie" "^0.3.1"
+    cookie-universal "^2.0.14"
+
+cookie-universal@^2.0.14:
+  version "2.0.14"
+  resolved "http://registry.npm.taobao.org/cookie-universal/download/cookie-universal-2.0.14.tgz#1b4f27cffccfc2e47703fa235c1f67f931213041"
+  dependencies:
+    "@types/cookie" "^0.3.1"
+    cookie "^0.3.1"
 
 cookie@0.3.1, cookie@^0.3.1:
   version "0.3.1"
