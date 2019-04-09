@@ -88,8 +88,8 @@
           callback: function () {
             this.$router.push({
               path: '/nutsbp/mybp',
-            })
-          }
+            });
+          },
         });
       },
       onLayout () {

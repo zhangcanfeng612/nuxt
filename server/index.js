@@ -31,7 +31,16 @@ service.interceptors.request.use(
 // 返回状态判断
 service.interceptors.response.use(
   res => {
-    return res.data;
+    // TODO: errorCode(报错没有权限等) 这里没有测试过
+    if (res.code === '9901' || res.code === 2703 || res.code === 2205) {
+      let err = {
+        isSuccess: false,
+        message: '[no login]',
+      };
+      return Promise.resolve(new Error(err));
+    } else {
+      return res.data;
+    }
   },
   error => {
     // 当响应异常时做一些处理

@@ -28,77 +28,93 @@
 </template>
 
 <script>
-  import NutsHeader from '@/layouts/components/nuts-header';
-  import NutsFooter from '@/layouts/components/nuts-footer';
-  // import $Config from '@/nuxt.config';
+import NutsHeader from '@/layouts/components/nuts-header';
+import NutsFooter from '@/layouts/components/nuts-footer';
+// import $Config from '@/nuxt.config';
 
-  // 全局组件(登录弹窗，信息，对话框等)
-  import BaseLoading from '@/components/BaseLoading';
-  import BaseModal from '@/components/BaseModal';
+// 全局组件(登录弹窗，信息，对话框等)
+import BaseLoading from '@/components/BaseLoading';
+import BaseModal from '@/components/BaseModal';
 
-  // 疯狂BP业务弹窗
-  import NutsAccount from '@/layouts/popups/nuts-account';
-  // import NutsPay from '@/layouts/popups/nuts-pay';
+// 疯狂BP业务弹窗
+import NutsAccount from '@/layouts/popups/nuts-account';
+// import NutsPay from '@/layouts/popups/nuts-pay';
 
-  import { mapState } from 'vuex';
-  // import axios from 'axios';
-  import $Server from '@/server/index';
+import { mapState } from 'vuex';
+// import axios from 'axios';
+import $Server from '@/server/index';
 
-  const heads = seo =>
-    function getHeadsMap () {
-      const map = {};
-      for (const key in seo) {
-        map[key] = seo[key].head;
-      }
-      return map;
-    };
-  const routeMapHead = heads(require('@/static/js/seo.config'));
-  export default {
-    componentName: 'ROOT',
-    middleware: 'init',
-    components: {
-      NutsHeader,
-      NutsFooter,
-      BaseLoading,
-      BaseModal,
-      NutsAccount,
-      // NutsPay,
-    },
-    computed: {
-      routeMapHead,
-      ...mapState({
-        signInfo: state => state.PersonalInfo.SIGNINFO.data.data,
-        cardInfo: state => state.PersonalInfo.CARDINFO.data.data,
-      }),
-      isHeaderActive () {
-        return this.$route.path !== '/featured-project';
-      },
-      isFooterActive () {
-        return this.$route.path !== '/featured-project';
-      },
-    },
-    data () {
-      return {
-        GlobalComponentStatus: this.$store.state.GlobalComponent,
-      };
-    },
-    head () {
-      // SEO 的中心化管理
-      const route = this.$route;
-      const head = this.routeMapHead[route.name];
-      return typeof head === 'function' ? head(route) : head;
-    },
-    // 注意：beforeCreate与created在客户端与服务端均会被调用
-    beforeCreate () {
-      $Server.init();
-      // console.log(`是否登录${$Auth.isLogin()}`);
-    },
-    created () {
-      console.log('cardInfo', this.cardInfo);
-      console.log('signInfo', this.signInfo);
-      // console.log(this.GlobalComponentStatus.BASEMODAL.payload.slot);
-      // console.log(`env:${$Config.env.NODE_ENV}`);
-    },
+const heads = seo =>
+  function getHeadsMap () {
+    const map = {};
+    for (const key in seo) {
+      map[key] = seo[key].head;
+    }
+    return map;
   };
+const routeMapHead = heads(require('@/static/js/seo.config'));
+export default {
+  componentName: 'ROOT',
+  middleware: 'init',
+  components: {
+    NutsHeader,
+    NutsFooter,
+    BaseLoading,
+    BaseModal,
+    NutsAccount,
+    // NutsPay,
+  },
+  computed: {
+    routeMapHead,
+    ...mapState({
+      signInfo: state => state.PersonalInfo.SIGNINFO.data.data,
+      cardInfo: state => state.PersonalInfo.CARDINFO.data.data,
+    }),
+    isHeaderActive () {
+      return this.$route.path !== '/featured-project';
+    },
+    isFooterActive () {
+      return this.$route.path !== '/featured-project';
+    },
+  },
+  data () {
+    return {
+      GlobalComponentStatus: this.$store.state.GlobalComponent,
+    };
+  },
+  head () {
+    // SEO 的中心化管理
+    const route = this.$route;
+    const head = this.routeMapHead[route.name];
+    return typeof head === 'function' ? head(route) : head;
+  },
+  // 注意：beforeCreate与created在客户端与服务端均会被调用
+  beforeCreate () {
+    $Server.init();
+    // console.log(`是否登录${$Auth.isLogin()}`);
+  },
+  created () {
+    console.log('cardInfo', this.cardInfo);
+    console.log('signInfo', this.signInfo);
+    // console.log(this.GlobalComponentStatus.BASEMODAL.payload.slot);
+    // console.log(`env:${$Config.env.NODE_ENV}`);
+  },
+  mounted () {
+    // 直接执行所有api，假如出现没有权限或者未登录的情况，在全局捕获错误并显示登录框
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+      if (error.message.indexOf('[no login]') !== -1) {
+        this.$store.dispatch('GlobalComponent/show', {
+          component: 'NUTSACCOUNT',
+          page: 'login',
+          callback: function () {
+            // TODO: 刷新header
+          },
+        });
+      } else {
+        // TODO：捕获其他错误，显示弹框报错
+      }
+    };
+  },
+};
 </script>
 
